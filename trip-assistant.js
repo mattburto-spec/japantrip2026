@@ -76,15 +76,20 @@ IMPORTANT RULES:
   style.textContent = `
     .chat-fab {
       position: fixed; bottom: 28px; right: 28px; z-index: 9999;
-      width: 60px; height: 60px; border-radius: 50%;
-      background: linear-gradient(135deg, #1a1a2e, #0f3460);
-      color: #fff; border: none; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, #FFB6C1, #FF8FAB);
+      border: 3px solid #fff; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,143,171,0.4);
       display: flex; align-items: center; justify-content: center;
-      font-size: 26px; transition: all 0.3s;
+      padding: 0; transition: all 0.3s;
+      overflow: hidden;
     }
-    .chat-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(0,0,0,0.35); }
-    .chat-fab.open { border-radius: 16px; width: 48px; height: 48px; font-size: 22px; }
+    .chat-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(255,143,171,0.5); }
+    .chat-fab.open { border-radius: 50%; background: linear-gradient(135deg, #1a1a2e, #0f3460); border-color: #0f3460; }
+    .chat-fab svg { width: 44px; height: 44px; }
+    .chat-fab.open svg { display: none; }
+    .chat-fab .close-x { display: none; color: #fff; font-size: 22px; font-weight: bold; }
+    .chat-fab.open .close-x { display: block; }
 
     .chat-panel {
       position: fixed; bottom: 100px; right: 28px; z-index: 9998;
@@ -138,18 +143,6 @@ IMPORTANT RULES:
     .chat-send:hover { background: #0f3460; }
     .chat-send:disabled { opacity: 0.4; cursor: default; }
 
-    .chat-key-setup {
-      padding: 20px; text-align: center; font-size: 13px; color: #666;
-    }
-    .chat-key-setup input {
-      width: 100%; padding: 10px 12px; border: 1px solid #e0dbd4;
-      border-radius: 10px; font-size: 13px; margin: 10px 0; font-family: inherit;
-    }
-    .chat-key-setup button {
-      background: #1a1a2e; color: #fff; border: none; padding: 8px 20px;
-      border-radius: 10px; cursor: pointer; font-size: 13px; font-family: inherit;
-    }
-
     @media (max-width: 480px) {
       .chat-panel { width: calc(100vw - 24px); right: 12px; bottom: 88px; }
     }
@@ -159,7 +152,29 @@ IMPORTANT RULES:
   // ===== HTML =====
   const fab = document.createElement('button');
   fab.className = 'chat-fab';
-  fab.innerHTML = '🗾';
+  fab.innerHTML = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <!-- body -->
+    <ellipse cx="50" cy="58" rx="32" ry="30" fill="#fff"/>
+    <!-- ears -->
+    <ellipse cx="28" cy="28" rx="12" ry="16" fill="#fff" transform="rotate(-15 28 28)"/>
+    <ellipse cx="28" cy="28" rx="7" ry="11" fill="#FFB6C1" transform="rotate(-15 28 28)"/>
+    <ellipse cx="72" cy="28" rx="12" ry="16" fill="#fff" transform="rotate(15 72 28)"/>
+    <ellipse cx="72" cy="28" rx="7" ry="11" fill="#FFB6C1" transform="rotate(15 72 28)"/>
+    <!-- face -->
+    <circle cx="50" cy="55" r="26" fill="#fff"/>
+    <!-- eyes -->
+    <ellipse cx="40" cy="52" rx="5" ry="5.5" fill="#2D2D2D"/>
+    <ellipse cx="60" cy="52" rx="5" ry="5.5" fill="#2D2D2D"/>
+    <circle cx="38" cy="50" r="2" fill="#fff"/>
+    <circle cx="58" cy="50" r="2" fill="#fff"/>
+    <!-- blush -->
+    <ellipse cx="32" cy="60" rx="5" ry="3" fill="#FFB6C1" opacity="0.6"/>
+    <ellipse cx="68" cy="60" rx="5" ry="3" fill="#FFB6C1" opacity="0.6"/>
+    <!-- mouth -->
+    <path d="M46 63 Q50 67 54 63" stroke="#2D2D2D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- nose -->
+    <ellipse cx="50" cy="58" rx="2" ry="1.5" fill="#FFB6C1"/>
+  </svg><span class="close-x">✕</span>`;
   fab.title = 'Trip Assistant';
   document.body.appendChild(fab);
 
@@ -167,71 +182,38 @@ IMPORTANT RULES:
   panel.className = 'chat-panel';
   panel.innerHTML = `
     <div class="chat-header">
-      <h3>🗾 Trip Assistant</h3>
+      <h3>Trip Assistant</h3>
       <p>Ask anything about your Japan trip</p>
     </div>
     <div class="chat-messages" id="chat-messages">
       <div class="chat-msg assistant">Hi! I'm your Japan trip assistant. Ask me anything — restaurants near your hotels, how to get between cities, what to pack, budget tips, or activity ideas for any day of your trip.</div>
     </div>
-    <div id="chat-key-area"></div>
-    <div class="chat-input-row" id="chat-input-row" style="display:none;">
+    <div class="chat-input-row" id="chat-input-row">
       <textarea class="chat-input" id="chat-input" placeholder="Ask about your trip..." rows="1"></textarea>
       <button class="chat-send" id="chat-send">▶</button>
     </div>
   `;
   document.body.appendChild(panel);
 
+  // ===== CONFIG =====
+  // Replace with your Supabase Edge Function URL after deploying
+  const CHAT_ENDPOINT = 'https://mpofqqwlcvqwgbuyxfpl.supabase.co/functions/v1/chat';
+
   // ===== STATE =====
-  let apiKey = localStorage.getItem('anthropic-api-key') || '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';
   let messages = [];
   let isOpen = false;
   let isSending = false;
 
   const messagesEl = document.getElementById('chat-messages');
-  const inputRow = document.getElementById('chat-input-row');
   const inputEl = document.getElementById('chat-input');
   const sendBtn = document.getElementById('chat-send');
-  const keyArea = document.getElementById('chat-key-area');
-
-  // ===== API KEY SETUP =====
-  function showKeySetup() {
-    keyArea.innerHTML = `
-      <div class="chat-key-setup">
-        <p>Enter your Anthropic API key to start chatting. It's stored locally in your browser only.</p>
-        <input type="password" id="api-key-input" placeholder="sk-ant-..." />
-        <button onclick="document.dispatchEvent(new CustomEvent('save-key'))">Save & Start</button>
-      </div>
-    `;
-  }
-
-  function hideKeySetup() {
-    keyArea.innerHTML = '';
-    inputRow.style.display = 'flex';
-  }
-
-  if (!apiKey) {
-    showKeySetup();
-  } else {
-    hideKeySetup();
-  }
-
-  document.addEventListener('save-key', () => {
-    const val = document.getElementById('api-key-input').value.trim();
-    if (val) {
-      apiKey = val;
-      localStorage.setItem('anthropic-api-key', val);
-      hideKeySetup();
-      inputEl.focus();
-    }
-  });
 
   // ===== TOGGLE =====
   fab.addEventListener('click', () => {
     isOpen = !isOpen;
     panel.classList.toggle('open', isOpen);
     fab.classList.toggle('open', isOpen);
-    fab.innerHTML = isOpen ? '✕' : '🗾';
-    if (isOpen && apiKey) inputEl.focus();
+    if (isOpen) inputEl.focus();
   });
 
   // ===== MESSAGING =====
@@ -264,19 +246,12 @@ IMPORTANT RULES:
     typingDiv.classList.add('typing');
 
     try {
-      const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      const resp = await fetch(CHAT_ENDPOINT, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
-          'anthropic-dangerous-direct-browser-access': 'true'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-5-20250514',
-          max_tokens: 600,
           system: TRIP_CONTEXT,
-          messages: messages.slice(-10) // keep last 10 for context window
+          messages: messages.slice(-10)
         })
       });
 
