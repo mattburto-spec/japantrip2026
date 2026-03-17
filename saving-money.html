@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saving Money in Japan | Japan Trip 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:#FFF8F0; color:#2D2D2D; line-height:1.7; }
+
+.hero { height:50vh; min-height:340px; display:flex; align-items:flex-end; position:relative; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1528164344705-47542687000d?w=1600&q=80') center/cover; }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%); }
+.hero-content { position:relative; z-index:2; padding:40px 60px 50px; color:#fff; max-width:900px; }
+.hero-badge { display:inline-block; background:#4CAF50; padding:6px 16px; border-radius:20px; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; font-weight:600; }
+.hero h1 { font-family:'Playfair Display',serif; font-size:48px; font-weight:700; line-height:1.1; margin-bottom:10px; }
+.hero .subtitle { font-size:17px; opacity:0.8; max-width:650px; }
+.back-link { position:absolute; top:24px; right:40px; z-index:10; color:#fff; text-decoration:none; font-size:15px; font-weight:700; background:rgba(0,0,0,0.45); padding:12px 24px; border-radius:25px; backdrop-filter:blur(8px); transition:all 0.3s; border:2px solid rgba(255,255,255,0.3); box-shadow:0 2px 12px rgba(0,0,0,0.3); letter-spacing:0.3px; }
+.back-link:hover { background:rgba(0,0,0,0.6); transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,0.4); }
+
+.container { max-width:1000px; margin:0 auto; padding:48px 40px 60px; }
+
+/* Savings callout */
+.savings-callout { background:linear-gradient(135deg, #2e7d32, #388e3c); color:#fff; border-radius:16px; padding:28px 32px; margin-bottom:48px; display:flex; align-items:center; gap:20px; }
+.savings-callout .amount { font-family:'Playfair Display',serif; font-size:42px; font-weight:700; white-space:nowrap; }
+.savings-callout .desc { font-size:15px; opacity:0.9; }
+
+/* Section */
+.section { margin-bottom:48px; }
+.section-header { display:flex; align-items:center; gap:14px; margin-bottom:24px; }
+.section-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+.section-header h2 { font-family:'Playfair Display',serif; font-size:26px; font-weight:600; }
+
+/* Tip cards */
+.tip-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.tip-card { background:#fff; border-radius:14px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.04); border-left:4px solid #4CAF50; transition:all 0.3s; }
+.tip-card:hover { box-shadow:0 4px 20px rgba(0,0,0,0.08); transform:translateY(-2px); }
+.tip-card h3 { font-size:16px; font-weight:700; margin-bottom:8px; color:#2D2D2D; }
+.tip-card p { font-size:14px; color:#555; margin-bottom:6px; }
+.tip-card .save-tag { display:inline-block; margin-top:8px; padding:4px 12px; border-radius:12px; font-size:12px; font-weight:700; background:#e8f5e9; color:#2e7d32; }
+
+/* Full-width tip */
+.tip-card.full { grid-column: 1 / -1; }
+
+/* Location-specific section */
+.location-section { margin-bottom:40px; }
+.location-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; padding-bottom:8px; border-bottom:2px solid; }
+.location-dot { width:14px; height:14px; border-radius:50%; flex-shrink:0; }
+.location-header h3 { font-family:'Playfair Display',serif; font-size:22px; font-weight:600; }
+.loc-tips { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.loc-tip { background:#fff; border-radius:12px; padding:20px; box-shadow:0 2px 10px rgba(0,0,0,0.03); }
+.loc-tip h4 { font-size:15px; font-weight:700; margin-bottom:6px; }
+.loc-tip p { font-size:14px; color:#555; }
+.loc-tip .save-tag { display:inline-block; margin-top:8px; padding:3px 10px; border-radius:10px; font-size:11px; font-weight:700; background:#e8f5e9; color:#2e7d32; }
+
+.page-nav { display:flex; justify-content:space-between; padding:32px 0; border-top:1px solid #e8e0d8; margin-top:20px; }
+.nav-btn { text-decoration:none; color:#2D2D2D; font-weight:600; font-size:14px; padding:10px 20px; border-radius:10px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.06); transition:all 0.3s; }
+.nav-btn:hover { box-shadow:0 4px 16px rgba(0,0,0,0.1); transform:translateY(-2px); }
+
+@media (max-width:768px) {
+  .tip-grid, .loc-tips { grid-template-columns:1fr; }
+  .tip-card.full { grid-column:auto; }
+  .savings-callout { flex-direction:column; text-align:center; }
+  .hero h1 { font-size:32px; }
+  .hero-content { padding:24px 24px 32px; }
+  .container { padding:32px 20px; }
+}
+</style>
+</head>
+<body>
+  <a href="Japan Trip Itinerary.html" class="back-link">&larr; Back to Itinerary</a>
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Budget Tips</div>
+      <h1>Saving Money in Japan</h1>
+      <p class="subtitle">Your big-ticket items are locked in at great rates. Here's how to keep daily spending lean without missing out on anything.</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="savings-callout">
+      <div class="amount">$1,500&ndash;$2,000</div>
+      <div class="desc">Estimated savings if you follow these tips across the whole trip. That's enough for a couple of fancy dinners and a shopping spree at Don Quijote.</div>
+    </div>
+
+    <!-- TRANSPORT -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e3f2fd;">&#128647;</div>
+        <h2>Getting Around for Less</h2>
+      </div>
+      <div class="tip-grid">
+        <div class="tip-card">
+          <h3>JR Kansai-Hiroshima Area Pass</h3>
+          <p>This 5-day pass covers unlimited Shinkansen between Shin-Osaka and Hiroshima, plus all local JR trains and the Miyajima ferry. At ~$175 AUD per adult vs ~$225+ buying individual bullet train tickets, it's a no-brainer for your Osaka &rarr; Hiroshima &rarr; Kyoto leg.</p>
+          <p>Bronte (under 12) gets a half-price child pass.</p>
+          <div class="save-tag">Save ~$250+ for the family</div>
+        </div>
+        <div class="tip-card">
+          <h3>Hokkaido Expressway Pass (HEP)</h3>
+          <p>Highway tolls in Japan are notoriously steep. When you pick up the Alphard, ask for the HEP &mdash; it gives unlimited use of Hokkaido's expressways for a flat daily fee. On your Furano &rarr; Biei &rarr; Asahikawa &rarr; Otaru &rarr; Sapporo route, this will almost certainly save you money and definitely save hassle.</p>
+          <div class="save-tag">Save ~$100&ndash;150</div>
+        </div>
+        <div class="tip-card">
+          <h3>Smart-EX App (Early Bird Shinkansen)</h3>
+          <p>For the Kyoto &rarr; Nagoya leg, download the Smart-EX app before you leave. Book 21&ndash;28 days ahead to access "Hayatoku" early-bird fares. It also lets you pick seats and change reservations easily from your phone.</p>
+          <div class="save-tag">Save 10&ndash;20% per ticket</div>
+        </div>
+        <div class="tip-card">
+          <h3>IC Cards (Suica / ICOCA)</h3>
+          <p>Get one per person at any station. Tap-on/tap-off for trains, buses, and vending machines. Fares are actually a few yen cheaper than paper tickets. Load them at any convenience store or station machine. They work nationwide across Osaka, Kyoto, Hiroshima, and Sapporo.</p>
+          <div class="save-tag">Convenience + small savings daily</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOD -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fff3e0;">&#127858;</div>
+        <h2>Eating Smart</h2>
+      </div>
+      <div class="tip-grid">
+        <div class="tip-card">
+          <h3>Lunch is the Fancy Meal</h3>
+          <p>If you want to try Hida beef, high-end sushi, or omakase, do it at lunch. Most restaurants offer teishoku (set meals) that are 30&ndash;50% cheaper than dinner for the same quality. A ¥5,000 dinner dish often appears as a ¥2,500 lunch set.</p>
+          <div class="save-tag">Save 30&ndash;50% on splurge meals</div>
+        </div>
+        <div class="tip-card">
+          <h3>Konbini Breakfasts</h3>
+          <p>Skip paid hotel breakfasts (unless included). 7-Eleven, Lawson, and FamilyMart have genuinely great egg sandwiches, onigiri, pastries, and iced coffee. Budget about $4&ndash;6 AUD per person &mdash; the whole family eats for under $25.</p>
+          <div class="save-tag">Save ~$30&ndash;50/day vs hotel breakfast</div>
+        </div>
+        <div class="tip-card">
+          <h3>Supermarket Evenings</h3>
+          <p>You have kitchens in Kyoto (Airbnb) and Furano (house). Hit a local supermarket (Life, Fresco, or Aeon) after 7:30 PM when they discount fresh bento, sushi, and deli items by up to 50%. You can feed everyone a feast for under $30 AUD.</p>
+          <div class="save-tag">Save ~$50&ndash;70 per evening</div>
+        </div>
+        <div class="tip-card">
+          <h3>Family Restaurants (Famiresu)</h3>
+          <p>Chains like Gusto, Saizeriya, Royal Host, and Joyfull are lifesavers for families. They serve a mix of Japanese and Western food, cost $8&ndash;12 AUD per meal, and have unlimited "drink bars" for a couple of dollars. Great for nights when everyone's tired.</p>
+          <div class="save-tag">Reliable &amp; cheap family dinners</div>
+        </div>
+        <div class="tip-card full">
+          <h3>Bring Reusable Water Bottles</h3>
+          <p>Tap water in Japan is perfectly safe. Buying 3&ndash;4 vending machine drinks per day for 5 people adds up to over $30 AUD daily. Fill up at your accommodation before heading out. Most train stations and parks have water fountains too.</p>
+          <div class="save-tag">Save ~$500+ over the whole trip</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHOPPING & ACTIVITIES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fce4ec;">&#127981;</div>
+        <h2>Activities &amp; Shopping</h2>
+      </div>
+      <div class="tip-grid">
+        <div class="tip-card">
+          <h3>Tax-Free Shopping</h3>
+          <p>Japan offers 10% tax-free shopping for tourists on purchases over ¥5,000 (~$50 AUD) at the same store. Always carry your physical passports. Places like Don Quijote (Donki) and department stores all offer it &mdash; just ask at the register.</p>
+          <div class="save-tag">Save 10% on shopping</div>
+        </div>
+        <div class="tip-card">
+          <h3>Check Klook Before You Queue</h3>
+          <p>Before walking up to the Kaiyukan Aquarium, Osaka Castle, Sapporo ropeways, etc., check the Klook app. They often have family bundles or slight discounts compared to the gate price, and you skip the ticket queues too.</p>
+          <div class="save-tag">Save 5&ndash;15% + skip queues</div>
+        </div>
+        <div class="tip-card full">
+          <h3>Free Stuff is Amazing in Japan</h3>
+          <p>Some of the best experiences in Japan are free: shrine and temple grounds (Fushimi Inari, Meiji Shrine), public parks, department store food-floor tastings, walking through Arashiyama bamboo grove, Dotonbori at night, and most festivals. Build these into your days alongside ticketed activities.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LUGGAGE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#f3e5f5;">&#128188;</div>
+        <h2>Luggage Shipping (Takkyubin)</h2>
+      </div>
+      <div class="tip-grid">
+        <div class="tip-card full">
+          <h3>Consolidate Before Shipping</h3>
+          <p>You don't need to ship all 5 suitcases every time. Pack a shared carry-on or backpacks with 2&ndash;3 days' worth of clothes and ship only 2&ndash;3 large bags. At ~¥2,500 per bag per shipment, going from 5 bags to 3 saves you about $50&ndash;75 AUD each time. Over 3 shipments that's $150&ndash;225.</p>
+          <div class="save-tag">Save ~$150&ndash;225 total</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOCATION-SPECIFIC -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e0f2f1;">&#128205;</div>
+        <h2>Location-Specific Tips</h2>
+      </div>
+
+      <div class="location-section">
+        <div class="location-header" style="border-color:#C75B7A;">
+          <div class="location-dot" style="background:#C75B7A;"></div>
+          <h3>Osaka (3 nights)</h3>
+        </div>
+        <div class="loc-tips">
+          <div class="loc-tip">
+            <h4>Osaka Amazing Pass</h4>
+            <p>If you plan to visit Osaka Castle, the Kaiyukan Aquarium, and take a river cruise, the 1-day Amazing Pass (~¥2,800) bundles free entry to 50+ attractions plus unlimited subway. Can easily save ¥3,000&ndash;4,000 per person per day.</p>
+            <div class="save-tag">Worth it if doing 3+ attractions</div>
+          </div>
+          <div class="loc-tip">
+            <h4>Shinsekai for Cheap Eats</h4>
+            <p>Kushikatsu (deep-fried skewers) in Shinsekai are ridiculously cheap &mdash; sets start from ¥500. It's a great family dinner option that also doubles as a sightseeing experience with the retro Tsutenkaku Tower lit up above you.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-section">
+        <div class="location-header" style="border-color:#D4A574;">
+          <div class="location-dot" style="background:#D4A574;"></div>
+          <h3>Hiroshima (2 nights)</h3>
+        </div>
+        <div class="loc-tips">
+          <div class="loc-tip">
+            <h4>Miyajima Ferry is Covered</h4>
+            <p>If you get the JR Kansai-Hiroshima Pass, the JR ferry to Miyajima Island is included. No need to buy a separate ferry ticket &mdash; just flash the pass.</p>
+            <div class="save-tag">Ferry already included in JR Pass</div>
+          </div>
+          <div class="loc-tip">
+            <h4>Hiroshima Okonomiyaki</h4>
+            <p>Hiroshima-style okonomiyaki is a must-try and extremely cheap &mdash; a full meal for ¥800&ndash;1,200 per person. Head to Okonomimura (Okonomiyaki Village), a multi-floor building packed with stalls.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-section">
+        <div class="location-header" style="border-color:#7A8B6F;">
+          <div class="location-dot" style="background:#7A8B6F;"></div>
+          <h3>Kyoto &amp; Nara (4 nights)</h3>
+        </div>
+        <div class="loc-tips">
+          <div class="loc-tip">
+            <h4>Most Temples Have Free Grounds</h4>
+            <p>Fushimi Inari (the famous torii gates) is completely free. Many temples charge only ¥300&ndash;500 to enter the inner gardens. Pick 2&ndash;3 "must-see" paid temples and enjoy the free grounds of the rest.</p>
+          </div>
+          <div class="loc-tip">
+            <h4>Nishiki Market for Tastings</h4>
+            <p>Walk through Nishiki Market and sample free tastings as you go &mdash; pickles, mochi, tea, soy milk donuts. It's a meal in itself and a great activity with the family.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-section">
+        <div class="location-header" style="border-color:#8B6F7A;">
+          <div class="location-dot" style="background:#8B6F7A;"></div>
+          <h3>Takayama (3 nights)</h3>
+        </div>
+        <div class="loc-tips">
+          <div class="loc-tip">
+            <h4>Ryokan Meals = Big Saving</h4>
+            <p>Your Ouan Ryokan includes breakfast and dinner. That's 3 nights of meals for everyone already covered &mdash; a massive saving given you'd be spending ¥5,000&ndash;8,000 per adult otherwise. Take advantage!</p>
+            <div class="save-tag">~$400&ndash;600 in meals already included</div>
+          </div>
+          <div class="loc-tip">
+            <h4>Morning Markets</h4>
+            <p>Takayama's famous morning markets (Jinya-mae and Miyagawa) run daily. Great for cheap local snacks, fresh fruit, and unique souvenirs at lower prices than touristy shops.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-section">
+        <div class="location-header" style="border-color:#5B7FA5;">
+          <div class="location-dot" style="background:#5B7FA5;"></div>
+          <h3>Hokkaido &amp; Sapporo (8 nights)</h3>
+        </div>
+        <div class="loc-tips">
+          <div class="loc-tip">
+            <h4>Cook in Furano</h4>
+            <p>Your Furano house has a kitchen. Hit up an A-Coop or local farm stand for incredibly fresh Hokkaido produce, dairy, and meats. Hokkaido corn, melons, and dairy are famous across Japan &mdash; cook with them!</p>
+            <div class="save-tag">Save ¥5,000+/night vs eating out</div>
+          </div>
+          <div class="loc-tip">
+            <h4>Sapporo Ramen Alley</h4>
+            <p>A bowl of miso ramen in Sapporo costs ¥800&ndash;1,000 &mdash; one of the cheapest quality meals you'll find. Ramen Yokocho (Ramen Alley) has a great atmosphere and the portions are generous.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-nav">
+      <a href="trip-todo.html" class="nav-btn">&larr; Trip To-Do List</a>
+      <a href="Japan Trip Itinerary.html" class="nav-btn">Back to Itinerary &rarr;</a>
+    </div>
+  </div>
+</body>
+</html>

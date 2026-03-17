@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip To-Do List & Money | Japan Trip 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:#FFF8F0; color:#2D2D2D; line-height:1.7; }
+
+.hero { height:50vh; min-height:340px; display:flex; align-items:flex-end; position:relative; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1600&q=80') center/cover; }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%); }
+.hero-content { position:relative; z-index:2; padding:40px 60px 50px; color:#fff; max-width:900px; }
+.hero-badge { display:inline-block; background:#5B7FA5; padding:6px 16px; border-radius:20px; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; font-weight:600; }
+.hero h1 { font-family:'Playfair Display',serif; font-size:48px; font-weight:700; line-height:1.1; margin-bottom:10px; }
+.hero .subtitle { font-size:17px; opacity:0.8; max-width:650px; }
+.back-link { position:absolute; top:24px; right:40px; z-index:10; color:#fff; text-decoration:none; font-size:15px; font-weight:700; background:rgba(0,0,0,0.45); padding:12px 24px; border-radius:25px; backdrop-filter:blur(8px); transition:all 0.3s; border:2px solid rgba(255,255,255,0.3); box-shadow:0 2px 12px rgba(0,0,0,0.3); letter-spacing:0.3px; }
+.back-link:hover { background:rgba(0,0,0,0.6); transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,0.4); }
+
+.container { max-width:1000px; margin:0 auto; padding:48px 40px 60px; }
+
+/* Section */
+.section { margin-bottom:52px; }
+.section-header { display:flex; align-items:center; gap:14px; margin-bottom:24px; }
+.section-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+.section-header h2 { font-family:'Playfair Display',serif; font-size:26px; font-weight:600; }
+
+/* To-Do items */
+.todo-list { list-style:none; }
+.todo-item { background:#fff; border-radius:12px; padding:18px 24px; margin-bottom:12px; box-shadow:0 2px 10px rgba(0,0,0,0.03); display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:start; }
+.todo-check { width:22px; height:22px; border:2px solid #ccc; border-radius:6px; margin-top:2px; cursor:pointer; transition:all 0.2s; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.todo-check:hover { border-color:#5B7FA5; }
+.todo-item.checked .todo-check { background:#5B7FA5; border-color:#5B7FA5; }
+.todo-item.checked .todo-check::after { content:'✓'; color:#fff; font-size:14px; font-weight:700; }
+.todo-item.checked .todo-content h3, .todo-item.checked .todo-content p { opacity:0.4; text-decoration:line-through; }
+.todo-content h3 { font-size:15px; font-weight:700; margin-bottom:4px; }
+.todo-content p { font-size:13px; color:#666; }
+.todo-when { font-size:12px; font-weight:600; padding:4px 12px; border-radius:10px; white-space:nowrap; height:fit-content; margin-top:2px; }
+.when-now { background:#ffebee; color:#c62828; }
+.when-soon { background:#fff3e0; color:#e65100; }
+.when-before { background:#e3f2fd; color:#1565c0; }
+.when-ontrip { background:#e8f5e9; color:#2e7d32; }
+
+/* Money section */
+.money-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.money-card { background:#fff; border-radius:14px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+.money-card h3 { font-size:17px; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+.money-card p { font-size:14px; color:#555; margin-bottom:8px; }
+.money-card.recommended { border:2px solid #5B7FA5; position:relative; }
+.money-card.recommended::before { content:'★ Recommended'; position:absolute; top:-12px; left:20px; background:#5B7FA5; color:#fff; font-size:11px; font-weight:700; padding:3px 12px; border-radius:8px; letter-spacing:0.5px; }
+.money-card ul { list-style:none; margin-top:8px; }
+.money-card ul li { font-size:13px; color:#555; padding:4px 0; padding-left:18px; position:relative; }
+.money-card ul li::before { content:'✓'; position:absolute; left:0; color:#4CAF50; font-weight:700; }
+.money-card .con li::before { content:'✗'; color:#e53935; }
+
+.money-card.full { grid-column: 1 / -1; }
+
+/* Callout box */
+.callout { background:linear-gradient(135deg, #1a1a2e, #16213e); color:#fff; border-radius:16px; padding:28px 32px; margin-bottom:24px; }
+.callout h3 { font-size:18px; font-weight:700; margin-bottom:10px; }
+.callout p { font-size:14px; opacity:0.85; margin-bottom:6px; }
+
+.tip-box { background:#e8f5e9; border-radius:12px; padding:18px 22px; margin-top:16px; }
+.tip-box p { font-size:14px; color:#2e7d32; margin-bottom:4px; }
+.tip-box strong { color:#1b5e20; }
+
+.page-nav { display:flex; justify-content:space-between; padding:32px 0; border-top:1px solid #e8e0d8; margin-top:20px; }
+.nav-btn { text-decoration:none; color:#2D2D2D; font-weight:600; font-size:14px; padding:10px 20px; border-radius:10px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.06); transition:all 0.3s; }
+.nav-btn:hover { box-shadow:0 4px 16px rgba(0,0,0,0.1); transform:translateY(-2px); }
+
+@media (max-width:768px) {
+  .money-grid { grid-template-columns:1fr; }
+  .money-card.full { grid-column:auto; }
+  .todo-item { grid-template-columns:auto 1fr; }
+  .todo-when { grid-column: 2; }
+  .hero h1 { font-size:32px; }
+  .hero-content { padding:24px 24px 32px; }
+  .container { padding:32px 20px; }
+}
+</style>
+</head>
+<body>
+  <a href="Japan Trip Itinerary.html" class="back-link">&larr; Back to Itinerary</a>
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Preparation</div>
+      <h1>Trip To-Do List &amp; Money</h1>
+      <p class="subtitle">Everything to sort before you go, plus how to handle money once you're there.</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- PRE-TRIP TO-DO -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e3f2fd;">&#9745;</div>
+        <h2>Pre-Trip To-Do List</h2>
+      </div>
+      <p style="font-size:14px; color:#666; margin-bottom:20px;">Click any checkbox to mark it done. Your progress is saved in your browser.</p>
+
+      <ul class="todo-list" id="todo-list">
+        <li class="todo-item" data-id="passports">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Check passports are valid 6+ months past return</h3>
+            <p>Japan requires passports valid for the duration of stay. Check all 5 passports (including Bronte's) &mdash; renewal takes 2&ndash;3 weeks in Australia.</p>
+          </div>
+          <span class="todo-when when-now">Do now</span>
+        </li>
+        <li class="todo-item" data-id="wise-cards">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Set up Wise cards (Matt + parents)</h3>
+            <p>Order a Wise card for yourself and one for Mum &amp; Dad. Pre-load with JPY when the rate looks good. See the Money section below for details.</p>
+          </div>
+          <span class="todo-when when-now">Do now</span>
+        </li>
+        <li class="todo-item" data-id="jr-pass">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Buy JR Kansai-Hiroshima Area Pass</h3>
+            <p>5-day pass for Osaka &rarr; Hiroshima &rarr; Kyoto leg. Buy online in advance from JR West &mdash; it's slightly cheaper than buying at the station. 4 adults + 1 child pass.</p>
+          </div>
+          <span class="todo-when when-soon">Book soon</span>
+        </li>
+        <li class="todo-item" data-id="smart-ex">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Download Smart-EX app &amp; register</h3>
+            <p>For booking the Kyoto &rarr; Nagoya Shinkansen. Register your credit card and passport details. Book 21&ndash;28 days before travel for Hayatoku early-bird fares.</p>
+          </div>
+          <span class="todo-when when-soon">Book soon</span>
+        </li>
+        <li class="todo-item" data-id="klook">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Check Klook for activity bundles</h3>
+            <p>Look up Osaka Amazing Pass, Kaiyukan Aquarium, Sapporo ropeway tickets, etc. Pre-booking can save 5&ndash;15% and skip queues.</p>
+          </div>
+          <span class="todo-when when-soon">Book soon</span>
+        </li>
+        <li class="todo-item" data-id="travel-insurance">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Arrange travel insurance</h3>
+            <p>Make sure it covers the whole family including parents. Japan has excellent healthcare but it's expensive without insurance. Check your credit card &mdash; some offer complimentary cover.</p>
+          </div>
+          <span class="todo-when when-soon">Book soon</span>
+        </li>
+        <li class="todo-item" data-id="visit-japan-web">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Register on Visit Japan Web</h3>
+            <p>Japan's official entry portal. Fill in immigration and customs declarations online before you fly &mdash; generates a QR code for faster arrival. Register all 5 travellers.</p>
+          </div>
+          <span class="todo-when when-before">2 weeks before</span>
+        </li>
+        <li class="todo-item" data-id="takkyubin">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Research Takkyubin (luggage forwarding)</h3>
+            <p>Yamato Transport (Kuroneko) is the most popular. Hotels and convenience stores can arrange it. Plan which legs you'll ship bags vs carry them &mdash; consolidate to save money.</p>
+          </div>
+          <span class="todo-when when-before">2 weeks before</span>
+        </li>
+        <li class="todo-item" data-id="data-sim">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Sort mobile data (eSIM or pocket WiFi)</h3>
+            <p>Get an eSIM (Ubigi, Airalo, or Mobal) for each phone, or rent a pocket WiFi to share. eSIMs are cheapest at ~$15&ndash;25 AUD for 21 days. Order/activate before departure.</p>
+          </div>
+          <span class="todo-when when-before">2 weeks before</span>
+        </li>
+        <li class="todo-item" data-id="cash-aud">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Withdraw some JPY cash before leaving</h3>
+            <p>Bring ¥30,000&ndash;50,000 per adult for the first few days. You'll top up at 7-Eleven ATMs in Japan, but it's good to land with cash for the train to your hotel.</p>
+          </div>
+          <span class="todo-when when-before">1 week before</span>
+        </li>
+        <li class="todo-item" data-id="ic-cards">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Get IC cards (Suica/ICOCA) on arrival</h3>
+            <p>Buy one per person at the airport or first train station. Load ¥2,000&ndash;3,000 each to start. Used for trains, buses, vending machines, and convenience stores nationwide.</p>
+          </div>
+          <span class="todo-when when-ontrip">On arrival</span>
+        </li>
+        <li class="todo-item" data-id="hep">
+          <div class="todo-check" onclick="toggleTodo(this)"></div>
+          <div class="todo-content">
+            <h3>Ask for Hokkaido Expressway Pass at car rental</h3>
+            <p>When picking up the Alphard in Hokkaido, request the HEP for unlimited expressway use. Saves money on tolls for the Furano &rarr; Biei &rarr; Otaru &rarr; Sapporo route.</p>
+          </div>
+          <span class="todo-when when-ontrip">At car pickup</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- MONEY IN JAPAN -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fff3e0;">&#128176;</div>
+        <h2>Money in Japan</h2>
+      </div>
+
+      <div class="callout">
+        <h3>The Short Version</h3>
+        <p>Japan has gone increasingly cashless, but cash is still essential for small shops, temples, markets, and rural areas (especially Takayama and Hokkaido countryside).</p>
+        <p>Your best combo: <strong>Wise card for everyday spending + cash for places that don't take cards + IC card for transit.</strong></p>
+      </div>
+
+      <div class="money-grid">
+        <div class="money-card recommended">
+          <h3>&#128179; Wise Card</h3>
+          <p>The best option for your family. Wise uses the real mid-market exchange rate with a small transparent fee (typically 0.4&ndash;0.6% for AUD &rarr; JPY). No monthly fees, no surprises.</p>
+          <ul>
+            <li>Pre-load JPY when the rate looks good</li>
+            <li>Set rate alerts in the app to auto-convert</li>
+            <li>Works at most Japanese shops and restaurants</li>
+            <li>Withdraw cash from any 7-Eleven ATM (¥100 fee)</li>
+            <li>One-time $10 AUD card order fee, then free</li>
+          </ul>
+          <div class="tip-box">
+            <p><strong>For your parents:</strong> Since they're coming to Australia first, help them set up a Wise account and order a card while they're here. Load it with JPY together so they're comfortable using it. The app is simple and has good multi-language support.</p>
+          </div>
+        </div>
+
+        <div class="money-card">
+          <h3>&#127978; Cash (Still Important)</h3>
+          <p>Despite the cashless trend, you'll need cash more than you'd expect. Budget about 40% of daily spending as cash.</p>
+          <ul>
+            <li>Temples, shrines, and small shops are cash-only</li>
+            <li>Takayama morning markets &mdash; cash only</li>
+            <li>Some restaurants, especially in Hokkaido rural areas</li>
+            <li>Vending machines (some take IC cards, many don't)</li>
+            <li>Coin lockers at train stations</li>
+          </ul>
+          <p style="margin-top:12px; font-weight:600; font-size:13px;">Where to withdraw: 7-Eleven ATMs (Seven Bank) are everywhere and accept international cards. Japan Post ATMs are another reliable option.</p>
+        </div>
+
+        <div class="money-card">
+          <h3>&#128643; IC Cards (Suica / ICOCA)</h3>
+          <p>A must-have for transit. Tap on/off for trains and buses. Also works at convenience stores, vending machines, and many chain restaurants.</p>
+          <ul>
+            <li>¥500 deposit + load amount (refundable)</li>
+            <li>Fares are slightly cheaper than paper tickets</li>
+            <li>Top up at any station or convenience store</li>
+            <li>Works nationwide: Osaka, Kyoto, Hiroshima, Sapporo</li>
+            <li>Get Welcome Suica at airport (28-day tourist version)</li>
+          </ul>
+          <p style="margin-top:12px; font-size:13px; color:#666;">Tip: Apple Pay users can add a mobile Suica &mdash; no physical card needed. Top up directly from your Wise card.</p>
+        </div>
+
+        <div class="money-card">
+          <h3>&#128179; Regular Bank Cards</h3>
+          <p>Your normal Australian debit/credit cards work in Japan, but fees add up fast.</p>
+          <ul class="con">
+            <li>Foreign transaction fee: 2&ndash;3%</li>
+            <li>Currency conversion markup: 1&ndash;3%</li>
+            <li>ATM fee: $3&ndash;8 per withdrawal</li>
+            <li>Combined: 4&ndash;6% more than Wise</li>
+          </ul>
+          <p style="margin-top:12px; font-size:13px; color:#666;">Keep a regular card as backup, but use Wise for primary spending. On a $10,000 spend, Wise saves you $400&ndash;600 in fees.</p>
+        </div>
+
+        <div class="money-card full">
+          <h3>&#128161; Key Money Tips</h3>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px;">
+            <div>
+              <p><strong>Always choose JPY at terminals</strong></p>
+              <p>When a card machine asks "pay in AUD or JPY?" &mdash; always pick JPY. Paying in AUD triggers "Dynamic Currency Conversion" with terrible rates (3&ndash;5% markup).</p>
+            </div>
+            <div>
+              <p><strong>Carry small denominations</strong></p>
+              <p>Many ticket machines and smaller vending machines don't take ¥10,000 notes. Break big notes at convenience stores or when buying train tickets.</p>
+            </div>
+            <div>
+              <p><strong>Tax-free threshold</strong></p>
+              <p>Spend ¥5,000+ at one store? Ask for tax-free (免税). Show your passport. That's 10% off instantly on souvenirs, cosmetics, and clothes.</p>
+            </div>
+            <div>
+              <p><strong>Budget estimate per family per day</strong></p>
+              <p>At mid-range spending: ~¥25,000&ndash;35,000/day for all 5 of you (~$230&ndash;320 AUD). Higher in cities, lower in Takayama where meals are included.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-nav">
+      <a href="Japan Trip Itinerary.html" class="nav-btn">&larr; Back to Itinerary</a>
+      <a href="saving-money.html" class="nav-btn">Saving Money Tips &rarr;</a>
+    </div>
+  </div>
+
+<script>
+// Interactive checkboxes with localStorage persistence
+function toggleTodo(el) {
+  const item = el.closest('.todo-item');
+  item.classList.toggle('checked');
+  saveTodos();
+}
+
+function saveTodos() {
+  const items = document.querySelectorAll('.todo-item');
+  const state = {};
+  items.forEach(item => { state[item.dataset.id] = item.classList.contains('checked'); });
+  try { localStorage.setItem('japan-trip-todos', JSON.stringify(state)); } catch(e) {}
+}
+
+function loadTodos() {
+  try {
+    const state = JSON.parse(localStorage.getItem('japan-trip-todos') || '{}');
+    Object.keys(state).forEach(id => {
+      if (state[id]) {
+        const item = document.querySelector(`[data-id="${id}"]`);
+        if (item) item.classList.add('checked');
+      }
+    });
+  } catch(e) {}
+}
+
+loadTodos();
+</script>
+</body>
+</html>
