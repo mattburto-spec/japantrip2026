@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money in Japan | Japan Trip 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:#FFF8F0; color:#2D2D2D; line-height:1.7; }
+
+.hero { height:50vh; min-height:340px; display:flex; align-items:flex-end; position:relative; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1579468118700-ed95e5b19fe2?w=1600&q=80') center/cover; }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%); }
+.hero-content { position:relative; z-index:2; padding:40px 60px 50px; color:#fff; max-width:900px; }
+.hero-badge { display:inline-block; background:#D4A574; padding:6px 16px; border-radius:20px; font-size:11px; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; font-weight:600; }
+.hero h1 { font-family:'Playfair Display',serif; font-size:48px; font-weight:700; line-height:1.1; margin-bottom:10px; }
+.hero .subtitle { font-size:17px; opacity:0.8; max-width:650px; }
+.back-link { position:absolute; top:24px; right:40px; z-index:10; color:#fff; text-decoration:none; font-size:15px; font-weight:700; background:rgba(0,0,0,0.45); padding:12px 24px; border-radius:25px; backdrop-filter:blur(8px); transition:all 0.3s; border:2px solid rgba(255,255,255,0.3); box-shadow:0 2px 12px rgba(0,0,0,0.3); letter-spacing:0.3px; }
+.back-link:hover { background:rgba(0,0,0,0.6); transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,0.4); }
+
+.container { max-width:1000px; margin:0 auto; padding:48px 40px 60px; }
+
+.section { margin-bottom:52px; }
+.section-header { display:flex; align-items:center; gap:14px; margin-bottom:24px; }
+.section-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+.section-header h2 { font-family:'Playfair Display',serif; font-size:26px; font-weight:600; }
+
+.money-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.money-card { background:#fff; border-radius:14px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.04); }
+.money-card h3 { font-size:17px; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+.money-card p { font-size:14px; color:#555; margin-bottom:8px; }
+.money-card.recommended { border:2px solid #D4A574; position:relative; }
+.money-card.recommended::before { content:'★ Recommended'; position:absolute; top:-12px; left:20px; background:#D4A574; color:#fff; font-size:11px; font-weight:700; padding:3px 12px; border-radius:8px; letter-spacing:0.5px; }
+.money-card ul { list-style:none; margin-top:8px; }
+.money-card ul li { font-size:13px; color:#555; padding:4px 0; padding-left:18px; position:relative; }
+.money-card ul li::before { content:'✓'; position:absolute; left:0; color:#4CAF50; font-weight:700; }
+.money-card .con li::before { content:'✗'; color:#e53935; }
+.money-card.full { grid-column: 1 / -1; }
+
+.callout { background:linear-gradient(135deg, #1a1a2e, #16213e); color:#fff; border-radius:16px; padding:28px 32px; margin-bottom:24px; }
+.callout h3 { font-size:18px; font-weight:700; margin-bottom:10px; }
+.callout p { font-size:14px; opacity:0.85; margin-bottom:6px; }
+
+.tip-box { background:#fef3e8; border-radius:12px; padding:18px 22px; margin-top:16px; }
+.tip-box p { font-size:14px; color:#8B6914; margin-bottom:4px; }
+.tip-box strong { color:#6B4F00; }
+
+.page-nav { display:flex; justify-content:space-between; padding:32px 0; border-top:1px solid #e8e0d8; margin-top:20px; }
+.nav-btn { text-decoration:none; color:#2D2D2D; font-weight:600; font-size:14px; padding:10px 20px; border-radius:10px; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.06); transition:all 0.3s; }
+.nav-btn:hover { box-shadow:0 4px 16px rgba(0,0,0,0.1); transform:translateY(-2px); }
+
+@media (max-width:768px) {
+  .money-grid { grid-template-columns:1fr; }
+  .money-card.full { grid-column:auto; }
+  .hero h1 { font-size:32px; }
+  .hero-content { padding:24px 24px 32px; }
+  .container { padding:32px 20px; }
+}
+</style>
+</head>
+<body>
+  <a href="Japan Trip Itinerary.html" class="back-link">&larr; Back to Itinerary</a>
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Practical Guide</div>
+      <h1>Money in Japan</h1>
+      <p class="subtitle">How to pay, where to withdraw, and the smartest cards to bring for your family.</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="callout">
+      <h3>The Short Version</h3>
+      <p>Japan has gone increasingly cashless, but cash is still essential for small shops, temples, markets, and rural areas (especially Takayama and Hokkaido countryside).</p>
+      <p>Your best combo: <strong>Wise card for everyday spending + cash for places that don't take cards + IC card for transit.</strong></p>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fff3e0;">&#128176;</div>
+        <h2>Payment Methods</h2>
+      </div>
+
+      <div class="money-grid">
+        <div class="money-card recommended">
+          <h3>&#128179; Wise Card</h3>
+          <p>The best option for your family. Wise uses the real mid-market exchange rate with a small transparent fee (typically 0.4&ndash;0.6% for AUD &rarr; JPY). No monthly fees, no surprises.</p>
+          <ul>
+            <li>Pre-load JPY when the rate looks good</li>
+            <li>Set rate alerts in the app to auto-convert</li>
+            <li>Works at most Japanese shops and restaurants</li>
+            <li>Withdraw cash from any 7-Eleven ATM (&yen;100 fee)</li>
+            <li>One-time $10 AUD card order fee, then free</li>
+          </ul>
+          <div class="tip-box">
+            <p><strong>For your parents:</strong> Since they're coming to Australia first, help them set up a Wise account and order a card while they're here. Load it with JPY together so they're comfortable using it. The app is simple and has good multi-language support.</p>
+          </div>
+        </div>
+
+        <div class="money-card">
+          <h3>&#127978; Cash (Still Important)</h3>
+          <p>Despite the cashless trend, you'll need cash more than you'd expect. Budget about 40% of daily spending as cash.</p>
+          <ul>
+            <li>Temples, shrines, and small shops are cash-only</li>
+            <li>Takayama morning markets &mdash; cash only</li>
+            <li>Some restaurants, especially in Hokkaido rural areas</li>
+            <li>Vending machines (some take IC cards, many don't)</li>
+            <li>Coin lockers at train stations</li>
+          </ul>
+          <p style="margin-top:12px; font-weight:600; font-size:13px;">Where to withdraw: 7-Eleven ATMs (Seven Bank) are everywhere and accept international cards. Japan Post ATMs are another reliable option.</p>
+        </div>
+
+        <div class="money-card">
+          <h3>&#128643; IC Cards (Suica / ICOCA)</h3>
+          <p>A must-have for transit. Tap on/off for trains and buses. Also works at convenience stores, vending machines, and many chain restaurants.</p>
+          <ul>
+            <li>&yen;500 deposit + load amount (refundable)</li>
+            <li>Fares are slightly cheaper than paper tickets</li>
+            <li>Top up at any station or convenience store</li>
+            <li>Works nationwide: Osaka, Kyoto, Hiroshima, Sapporo</li>
+            <li>Get Welcome Suica at airport (28-day tourist version)</li>
+          </ul>
+          <p style="margin-top:12px; font-size:13px; color:#666;">Tip: Apple Pay users can add a mobile Suica &mdash; no physical card needed. Top up directly from your Wise card.</p>
+        </div>
+
+        <div class="money-card">
+          <h3>&#128179; Regular Bank Cards</h3>
+          <p>Your normal Australian debit/credit cards work in Japan, but fees add up fast.</p>
+          <ul class="con">
+            <li>Foreign transaction fee: 2&ndash;3%</li>
+            <li>Currency conversion markup: 1&ndash;3%</li>
+            <li>ATM fee: $3&ndash;8 per withdrawal</li>
+            <li>Combined: 4&ndash;6% more than Wise</li>
+          </ul>
+          <p style="margin-top:12px; font-size:13px; color:#666;">Keep a regular card as backup, but use Wise for primary spending. On a $10,000 spend, Wise saves you $400&ndash;600 in fees.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e3f2fd;">&#128161;</div>
+        <h2>Key Money Tips</h2>
+      </div>
+
+      <div class="money-grid">
+        <div class="money-card">
+          <h3>Always Choose JPY at Terminals</h3>
+          <p>When a card machine asks "pay in AUD or JPY?" &mdash; always pick JPY. Paying in AUD triggers "Dynamic Currency Conversion" with terrible rates (3&ndash;5% markup).</p>
+        </div>
+        <div class="money-card">
+          <h3>Carry Small Denominations</h3>
+          <p>Many ticket machines and smaller vending machines don't take &yen;10,000 notes. Break big notes at convenience stores or when buying train tickets.</p>
+        </div>
+        <div class="money-card">
+          <h3>Tax-Free Shopping (免税)</h3>
+          <p>Spend &yen;5,000+ at one store? Ask for tax-free. Show your passport. That's 10% off instantly on souvenirs, cosmetics, and clothes. Don Quijote and department stores all offer it.</p>
+        </div>
+        <div class="money-card">
+          <h3>Daily Budget Estimate</h3>
+          <p>At mid-range spending: ~&yen;25,000&ndash;35,000/day for all 5 of you (~$230&ndash;320 AUD). Higher in cities, lower in Takayama where ryokan meals are included.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-nav">
+      <a href="trip-todo.html" class="nav-btn">&larr; Trip To-Do List</a>
+      <a href="saving-money.html" class="nav-btn">Saving Money Tips &rarr;</a>
+    </div>
+  </div>
+</body>
+</html>
