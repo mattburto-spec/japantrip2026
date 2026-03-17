@@ -18,6 +18,31 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
 
+/* Password gate */
+.pw-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10000;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+}
+.pw-overlay.hidden { display: none; }
+.pw-box { text-align: center; color: #fff; }
+.pw-box h2 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 8px; }
+.pw-box p { font-size: 14px; opacity: 0.6; margin-bottom: 24px; }
+.pw-box input {
+  padding: 12px 18px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1); color: #fff; font-size: 16px; font-family: inherit;
+  outline: none; width: 260px; text-align: center;
+}
+.pw-box input::placeholder { color: rgba(255,255,255,0.4); }
+.pw-box input:focus { border-color: rgba(255,255,255,0.5); }
+.pw-box button {
+  display: block; margin: 16px auto 0; padding: 10px 32px; border-radius: 12px;
+  border: none; background: #fff; color: #1a1a2e; font-size: 14px; font-weight: 600;
+  font-family: inherit; cursor: pointer; transition: all 0.2s;
+}
+.pw-box button:hover { transform: scale(1.04); }
+.pw-error { color: #FF6B6B; font-size: 13px; margin-top: 12px; min-height: 20px; }
+
 .page-header {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
   color: #fff; padding: 48px 40px 40px; position: relative; overflow: hidden;
@@ -131,6 +156,16 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
 </style>
 </head>
 <body>
+
+<div class="pw-overlay" id="pw-overlay">
+  <div class="pw-box">
+    <h2>Family Finances</h2>
+    <p>Enter the password to view trip finances</p>
+    <input type="password" id="pw-input" placeholder="Password" autofocus />
+    <button id="pw-btn">Unlock</button>
+    <div class="pw-error" id="pw-error"></div>
+  </div>
+</div>
 
 <div class="page-header">
   <a href="Japan Trip Itinerary.html" class="back-link">&larr; Back to Itinerary</a>
@@ -575,6 +610,37 @@ document.getElementById('slider-rate').addEventListener('input', update);
 
 // Initial render
 update();
+</script>
+
+<script>
+// Password gate
+(function() {
+  const overlay = document.getElementById('pw-overlay');
+  const input = document.getElementById('pw-input');
+  const btn = document.getElementById('pw-btn');
+  const error = document.getElementById('pw-error');
+  const PASSWORD = 'japan2026';
+
+  if (sessionStorage.getItem('finances-unlocked') === 'true') {
+    overlay.classList.add('hidden');
+  }
+
+  function tryUnlock() {
+    if (input.value === PASSWORD) {
+      overlay.classList.add('hidden');
+      sessionStorage.setItem('finances-unlocked', 'true');
+    } else {
+      error.textContent = 'Incorrect password';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  btn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') tryUnlock();
+  });
+})();
 </script>
 
 </body>
