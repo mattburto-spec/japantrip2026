@@ -172,7 +172,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   <div class="header-content">
     <div class="header-badge">Budget Planner</div>
     <h1>Trip Finances</h1>
-    <p>Japan Family Adventure &middot; 20 June &mdash; 10 July 2026 &middot; 5 Travellers</p>
+    <p>Japan Family Adventure &middot; 20 June &mdash; 11 July 2026 &middot; 5 Travellers</p>
   </div>
 </div>
 
@@ -183,19 +183,19 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     <div class="summary-card">
       <div class="accent" style="background: linear-gradient(90deg, var(--osaka), var(--hiroshima));"></div>
       <div class="label">Total Booked</div>
-      <div class="value" id="sum-booked">$10,936</div>
-      <div class="sub">Accommodation, flights, car</div>
+      <div class="value" id="sum-booked">$12,415</div>
+      <div class="sub">Accommodation, flights, rail, car</div>
     </div>
     <div class="summary-card">
       <div class="accent" style="background: linear-gradient(90deg, #5B7FA5, #7A8B6F);"></div>
       <div class="label">Matt's Family Share</div>
-      <div class="value" id="sum-matt">$5,653</div>
+      <div class="value" id="sum-matt">$6,474</div>
       <div class="sub">Matt, SQ &amp; Bronte (3 pax)</div>
     </div>
     <div class="summary-card">
       <div class="accent" style="background: linear-gradient(90deg, #D4A574, #8B6F7A);"></div>
       <div class="label">Mum &amp; Dad's Share</div>
-      <div class="value" id="sum-parents">$5,283</div>
+      <div class="value" id="sum-parents">$5,941</div>
       <div class="sub">2 pax</div>
     </div>
     <div class="summary-card">
@@ -212,7 +212,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <div class="icon" style="background: #f0ebe4;">&#128179;</div>
       Already Booked &amp; Paid
     </div>
-    <p class="note" style="margin-bottom: 16px; margin-top: -12px;">All costs below were booked around 20 Feb 2026 at the exchange rates on that date.</p>
+    <p class="note" style="margin-bottom: 16px; margin-top: -12px;">Accommodation, flights and car were booked around 20 Feb 2026; the Japan rail tickets in June 2026. AUD shown at the exchange rates on those dates.</p>
     <table class="cost-table">
       <thead>
         <tr>
@@ -287,11 +287,18 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
           <td><span class="currency-tag">RMB</span> 2,232</td>
           <td class="amount">$475.00</td>
         </tr>
+        <tr style="background: #fafaf5;">
+          <td>Trains: Japan rail (4 legs)</td>
+          <td><span class="region-dot" style="background: var(--kyoto);"></span>Transit</td>
+          <td>Shinkansen &times;2 + Hida &times;2, 5 pax</td>
+          <td><span class="currency-tag">JPY</span> 160,270</td>
+          <td class="amount">$1,483.98</td>
+        </tr>
       </tbody>
       <tfoot>
         <tr>
           <td colspan="4">Total Booked</td>
-          <td class="amount">$10,931.20</td>
+          <td class="amount">$12,415.18</td>
         </tr>
       </tfoot>
     </table>
@@ -309,19 +316,21 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
         <div class="who">3 travellers (Bronte shares rooms)</div>
         <div class="split-item"><span class="cat">Accommodation (50%)</span><span class="amt">$4,305.60</span></div>
         <div class="split-item"><span class="cat">Internal flights (3 pax)</span><span class="amt">$1,107.00</span></div>
+        <div class="split-item"><span class="cat">Trains (3 pax)</span><span class="amt">$824.35</span></div>
         <div class="split-item"><span class="cat">Car rental (50%)</span><span class="amt">$237.50</span></div>
-        <div class="split-total"><span>Total</span><span id="split-matt">$5,650.10</span></div>
+        <div class="split-total"><span>Total</span><span id="split-matt">$6,474.45</span></div>
       </div>
       <div class="split-card">
         <h3>Mum &amp; Dad</h3>
         <div class="who">2 travellers</div>
         <div class="split-item"><span class="cat">Accommodation (50%)</span><span class="amt">$4,305.60</span></div>
         <div class="split-item"><span class="cat">Internal flights (2 pax)</span><span class="amt">$738.00</span></div>
+        <div class="split-item"><span class="cat">Trains (2 pax)</span><span class="amt">$659.63</span></div>
         <div class="split-item"><span class="cat">Car rental (50%)</span><span class="amt">$237.50</span></div>
-        <div class="split-total"><span>Total</span><span id="split-parents">$5,281.10</span></div>
+        <div class="split-total"><span>Total</span><span id="split-parents">$5,940.73</span></div>
       </div>
     </div>
-    <p class="note">Accommodation split 50/50 between families. Flights charged per person ($185 + $184 = $369 pp). Bronte counts as full fare. Car split 50/50.</p>
+    <p class="note">Accommodation split 50/50 between families. Flights and trains charged per person. Bronte counts as full fare. Car split 50/50.</p>
   </div>
 
   <!-- Spending Projections -->
@@ -458,8 +467,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   <div class="grand-total-card" id="grand-total">
     <div class="gt-block">
       <div class="gt-label">Already Booked</div>
-      <div class="gt-value">$10,931</div>
-      <div class="gt-sub">Paid in AUD &mdash; fixed</div>
+      <div class="gt-value">$12,415</div>
+      <div class="gt-sub">Accommodation, flights, rail &amp; car</div>
     </div>
     <div class="gt-block">
       <div class="gt-label">Est. On-Trip Spending</div>
@@ -506,7 +515,7 @@ const LUGGAGE_SHIPMENTS = 3;
 const LUGGAGE_BAGS = 4;
 const LUGGAGE_COST_PER = 2500; // JPY per bag per shipment
 
-const BOOKED_TOTAL = 10931.20;
+const BOOKED_TOTAL = 12415.18;
 
 function fmt(n) { return '$' + n.toLocaleString('en-AU', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); }
 
