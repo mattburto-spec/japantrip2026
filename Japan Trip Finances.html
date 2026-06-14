@@ -183,19 +183,19 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
     <div class="summary-card">
       <div class="accent" style="background: linear-gradient(90deg, var(--osaka), var(--hiroshima));"></div>
       <div class="label">Total Booked</div>
-      <div class="value" id="sum-booked">$12,415</div>
+      <div class="value" id="sum-booked">$12,560</div>
       <div class="sub">Accommodation, flights, rail, car</div>
     </div>
     <div class="summary-card">
       <div class="accent" style="background: linear-gradient(90deg, #5B7FA5, #7A8B6F);"></div>
       <div class="label">Matt's Family Share</div>
-      <div class="value" id="sum-matt">$6,474</div>
+      <div class="value" id="sum-matt">$6,547</div>
       <div class="sub">Matt, SQ &amp; Bronte (3 pax)</div>
     </div>
     <div class="summary-card">
       <div class="accent" style="background: linear-gradient(90deg, #D4A574, #8B6F7A);"></div>
       <div class="label">Mum &amp; Dad's Share</div>
-      <div class="value" id="sum-parents">$5,941</div>
+      <div class="value" id="sum-parents">$6,013</div>
       <div class="sub">2 pax</div>
     </div>
     <div class="summary-card">
@@ -260,11 +260,11 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
           <td class="amount">$2,091.00</td>
         </tr>
         <tr>
-          <td>Bespoke Hotel, Sapporo</td>
+          <td>Airbnb, Sapporo</td>
           <td><span class="region-dot" style="background: var(--sapporo);"></span>Sapporo</td>
-          <td>2 rooms, 4 nights</td>
-          <td><span class="currency-tag">RMB</span> 6,916</td>
-          <td class="amount">$1,415.31</td>
+          <td>2 bedrooms, 4 nights</td>
+          <td><span class="currency-tag">AUD</span> 1,560</td>
+          <td class="amount">$1,560.40</td>
         </tr>
         <tr style="background: #fafaf5;">
           <td>Flights: Nagoya &rarr; Sapporo</td>
@@ -298,7 +298,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <tfoot>
         <tr>
           <td colspan="4">Total Booked</td>
-          <td class="amount">$12,415.18</td>
+          <td class="amount">$12,560.27</td>
         </tr>
       </tfoot>
     </table>
@@ -314,20 +314,20 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
       <div class="split-card">
         <h3>Matt, SQ &amp; Bronte</h3>
         <div class="who">3 travellers (Bronte shares rooms)</div>
-        <div class="split-item"><span class="cat">Accommodation (50%)</span><span class="amt">$4,305.60</span></div>
+        <div class="split-item"><span class="cat">Accommodation (50%)</span><span class="amt">$4,378.15</span></div>
         <div class="split-item"><span class="cat">Internal flights (3 pax)</span><span class="amt">$1,107.00</span></div>
         <div class="split-item"><span class="cat">Trains (3 pax)</span><span class="amt">$824.35</span></div>
         <div class="split-item"><span class="cat">Car rental (50%)</span><span class="amt">$237.50</span></div>
-        <div class="split-total"><span>Total</span><span id="split-matt">$6,474.45</span></div>
+        <div class="split-total"><span>Total</span><span id="split-matt">$6,547.00</span></div>
       </div>
       <div class="split-card">
         <h3>Mum &amp; Dad</h3>
         <div class="who">2 travellers</div>
-        <div class="split-item"><span class="cat">Accommodation (50%)</span><span class="amt">$4,305.60</span></div>
+        <div class="split-item"><span class="cat">Accommodation (50%)</span><span class="amt">$4,378.14</span></div>
         <div class="split-item"><span class="cat">Internal flights (2 pax)</span><span class="amt">$738.00</span></div>
         <div class="split-item"><span class="cat">Trains (2 pax)</span><span class="amt">$659.63</span></div>
         <div class="split-item"><span class="cat">Car rental (50%)</span><span class="amt">$237.50</span></div>
-        <div class="split-total"><span>Total</span><span id="split-parents">$5,940.73</span></div>
+        <div class="split-total"><span>Total</span><span id="split-parents">$6,013.27</span></div>
       </div>
     </div>
     <p class="note">Accommodation split 50/50 between families. Flights and trains charged per person. Bronte counts as full fare. Car split 50/50.</p>
@@ -467,7 +467,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(
   <div class="grand-total-card" id="grand-total">
     <div class="gt-block">
       <div class="gt-label">Already Booked</div>
-      <div class="gt-value">$12,415</div>
+      <div class="gt-value">$12,560</div>
       <div class="gt-sub">Accommodation, flights, rail &amp; car</div>
     </div>
     <div class="gt-block">
@@ -515,7 +515,7 @@ const LUGGAGE_SHIPMENTS = 3;
 const LUGGAGE_BAGS = 4;
 const LUGGAGE_COST_PER = 2500; // JPY per bag per shipment
 
-const BOOKED_TOTAL = 12415.18;
+const BOOKED_TOTAL = 12560.27;
 
 function fmt(n) { return '$' + n.toLocaleString('en-AU', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); }
 
